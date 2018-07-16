@@ -13,3 +13,7 @@ function quiz() {
 function renderQuestion() {
 
 }
+
+
+// save this for later - this adds in correct/incorrect text
+// jQuery('.quiz-question-outer').append('<p>Correct?</p>')
