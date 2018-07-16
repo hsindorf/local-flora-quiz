@@ -2,13 +2,11 @@ body {
   font-family: 'Muli', sans-serif;
   font-size: 16px;
 
-  background-color: #edfcef;
-  background-image: url("https://www.transparenttextures.com/patterns/xv.png");
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -25,14 +23,17 @@ h1 {
   margin: 0;
   text-align: center;
   font-size: 3em;
-  color: white;
   text-shadow: 3px 3px 0 rgba(0,0,0,.5);
 }
 
 h2 {
   font-size: 1.5em;
   margin: .5em 0;
-  color: #358301;
+  color: #04008c;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 @media (min-width: 800px) {
@@ -48,13 +49,25 @@ h2 {
 
 /* header, footer */
 
-header {
-  background-image: linear-gradient(to right bottom, #00af0e, #319101, #397400, #375905, #2f3f0a);
-  min-height: 200px;
+header,
+footer {
+  background-color: #2f4e2b;
+  background-image: url("../images/xv.png");
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: flex-start;
+  color: white;
+}
+
+header {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+footer {
+  text-align: right;
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* main */
@@ -62,14 +75,5 @@ header {
 main {
   height: 100%;
   padding: 1em;
-  background: rgba(255, 255, 255, .2);
   flex-grow: 1;
-}
-
-/* footer */
-
-footer {
-  min-height: 200px;
-  background: #2f3f0a;
-  color: white;
 }
