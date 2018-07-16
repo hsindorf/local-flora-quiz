@@ -21,3 +21,7 @@ Quiz on local flora.
 - Score page to show previous attempts
 - option to choose between name only/all
 - check close names/misspellings
+
+## Technologies
+
+- jQuery
