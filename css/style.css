@@ -32,7 +32,7 @@ button:hover {
 /* main page containers */
 
 .container {
-  width: 800px;
+  width: 960px;
   max-width: 100vw;
   margin: 0 auto;
 }
@@ -103,7 +103,7 @@ main {
   flex-grow: 1;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 959px) {
   main {
     padding: 2em;
   }
@@ -112,12 +112,46 @@ main {
 /* quiz styling */
 
 #quiz-container {
-  text-align: center;
+  display: flex;
 }
 
-#quiz-container img {
-  width: 400px;
+#quiz-photo img {
   max-width: 100%;
-  display: block;
-  margin: 0 auto;
+}
+
+#quiz-photo,
+#quiz-questions-container {
+  width: 100%;
+}
+
+#quiz-questions-container {
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2em;
+}
+
+.quiz-question {
+  height: 33%;
+}
+
+.quiz-question input {
+  float: right;
+  width: 50%;
+}
+
+@media (min-width: 960px) {
+  #quiz-photo {
+    height: 360px;
+  }
+}
+
+@media (max-width: 959px) {
+  #quiz-container {
+    flex-direction: column;
+  }
+  #quiz-photo {
+    text-align: center;
+  }
 }
