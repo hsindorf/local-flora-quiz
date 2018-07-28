@@ -113,7 +113,7 @@ main {
 
 /* quiz container - holds entire quiz section */
 #quiz-container {
-  display: flex;
+  display: none;
 }
 
 /* holds the photo */

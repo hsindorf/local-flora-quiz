@@ -1,13 +1,13 @@
 // add leaf to h2s
-jQuery('h2').prepend('<i class="fab fa-pagelines"></i> ');
+$('h2').prepend('<i class="fab fa-pagelines"></i> ');
 
 //scrollbar
-jQuery('main').overlayScrollbars({ className : 'os-theme-minimal-dark' });
+$('main').overlayScrollbars({ className : 'os-theme-minimal-dark' });
 
 // get page placeholders
-var quizPhoto = jQuery('#quiz-photo img');
-var quizInputs = jQuery('.quiz-question-input');
-var quizAnswers = jQuery('.answer');
+var quizPhoto = $('#quiz-photo img');
+var quizInputs = $('.quiz-question-input');
+var quizAnswers = $('.answer');
 
 // global variables
 // current question on page
@@ -19,7 +19,7 @@ var waitingToContinue = false;
 
 // plug in a number to set number of questions or
 // plug in Flora.all.length to set the number of questions to be the number of plants
-var numberOfQuestions = Flora.all.length;
+var numberOfQuestions = 3;
 
 // scores - common, scientific, family
 var quizScore = [0, 0, 0];
@@ -28,7 +28,6 @@ var quizScore = [0, 0, 0];
 function setQuestion() {
   getCurrentQuestion();
   quizPhoto.attr('src', 'images/' + currentQuestion + '.jpg');
-  quizPhoto.attr('alt', Flora.all[currentQuestion].name);
 }
 
 // this:
@@ -40,15 +39,15 @@ function checkAnswers(event) {
     for(let i = 0; i < 3; i++) {
       if (quizInputs[i].value.toLowerCase() === (Flora.all[currentQuestion].data[i]).toLowerCase()) {
         quizScore[i]++;
-        jQuery('.answer:eq(' + i + ')').text('Correct! ' + Flora.all[currentQuestion].data[i]);
-        jQuery('.answer:eq(' + i + ')').addClass('correct');
+        $('.answer:eq(' + i + ')').text('Correct! ' + Flora.all[currentQuestion].data[i]);
+        $('.answer:eq(' + i + ')').addClass('correct');
       } else {
-        jQuery('.answer:eq(' + i + ')').text('Incorrect! ' + Flora.all[currentQuestion].data[i]);
-        jQuery('.answer:eq(' + i + ')').addClass('incorrect');
+        $('.answer:eq(' + i + ')').text('Incorrect! ' + Flora.all[currentQuestion].data[i]);
+        $('.answer:eq(' + i + ')').addClass('incorrect');
       }
     }
     numberOfQuestions--;
-    jQuery('.quiz-submit button').text('Next');
+    $('.quiz-submit button').text('Next');
     waitingToContinue = true;
   } else {
     if (numberOfQuestions > 0) {
@@ -56,7 +55,8 @@ function checkAnswers(event) {
       quizAnswers.removeClass('correct');
       quizAnswers.removeClass('incorrect');
       quizAnswers.text('Click submit to check');
-      jQuery('.quiz-submit button').text('Submit');
+      $('.quiz-question-input').val('');
+      $('.quiz-submit button').text('Submit');
       waitingToContinue = false;
     } else {
       endOfQuiz();
@@ -81,12 +81,19 @@ function getCurrentQuestion() {
 
 //what to do when the quiz is over.
 function endOfQuiz() {
-  var totalScore = Math.floor(100 * ((quizScore[0] + quizScore[1] + quizScore[2]) / (Flora.all.length * 3)));
-  jQuery('#quiz-container').text(quizScore[0] + ' Common Name(s), ' + quizScore[1] + ' Scientific Name(s), ' + quizScore[2] + ' Family Name(s). Total score: ' + totalScore + '%');
+  var totalScore = Math.floor(100 * ((quizScore[0] + quizScore[1] + quizScore[2]) / (numberOfQuestions * 3)));
+  if (isNaN(totalScore)) {
+    totalScore = 0;
+  }
+  $('#quiz-container').text(quizScore[0] + '/' + numberOfQuestions + ' Common Name(s), ' + quizScore[1] + '/' + numberOfQuestions + ' Scientific Name(s), ' + quizScore[2] + '/' + numberOfQuestions + ' Family Name(s). Total score: ' + totalScore + '%');
 }
 
-setQuestion();
-jQuery('.quiz-submit button').on('click', checkAnswers);
+function initializeQuiz(event) {
+  event.preventDefault();
+  $('#start-quiz').remove();
+  setQuestion();
+  $('#quiz-container').css('display', 'flex');
+}
 
-// save this for later - this adds in correct/incorrect text
-// jQuery('.quiz-question-outer').append('<p>Correct?</p>')
+$('#start-quiz').on('click', initializeQuiz);
+$('.quiz-submit button').on('click', checkAnswers);
