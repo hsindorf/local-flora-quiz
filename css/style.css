@@ -111,8 +111,15 @@ main {
 
 /* quiz styling */
 
-/* quiz container - holds entire quiz section */
-#quiz-container {
+/* initially set to display none, set as visible by js */
+#quiz-container,
+#quiz-results {
+  display: none;
+}
+
+/* quiz inner shows the questions themselves */
+
+#quiz-inner {
   display: flex;
 }
 
@@ -154,7 +161,7 @@ main {
 }
 
 @media (max-width: 959px) {
-  #quiz-container {
+  #quiz-inner {
     flex-direction: column;
   }
   #quiz-photo {
