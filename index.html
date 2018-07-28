@@ -4,15 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Flora Quiz</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- outside resources-->
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,700|Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link type="text/css" href="OverlayScrollbars-master/css/OverlayScrollbars.css" rel="stylesheet"/>
 </head>
 <body>
-  
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  <header>
+    <div class="container">
+      <h1>Local Flora Quiz</h1>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="quiz-container">
+        <div id="quiz-photo">
+          <img>
+        </div>
+        <div id="quiz-questions-container">
+          <div class="quiz-question">
+            <label for="common-name">Common Name</label>
+            <input type="text" name="common-name" class="quiz-question-input">
+          </div>
+          <p id="common-name-answer" class="answer">Answer here</p>
+          <div class="quiz-question">
+            <label for="scientific-name">Scientific Name</label>
+            <input type="text" name="scientific-name" class="quiz-question-input">
+          </div>
+          <p id="scientific-name-answer" class="answer">Answer here</p>
+          <div class="quiz-question">
+            <label for="family">Family</label>
+            <input type="text" name="family" class="quiz-question-input">
+          </div>
+          <p id="family-answer" class="answer">Answer here</p>
+          <div class="quiz-submit">
+            <button>Submit</button>
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>made with love by hannah sindorf</p>
+    </div>
+  </footer>
+
+  <script 
+  src="https://code.jquery.com/jquery-3.3.1.min.js" 
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
   crossorigin="anonymous"></script>
-  <script src="js/app.js"></script>
+  <script src="OverlayScrollbars-master/js/jquery.overlayScrollbars.js"></script>
   <script src="js/flora.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

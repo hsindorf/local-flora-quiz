@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body, button, input {
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* buttons */
+
+button {
+  background: #5e785a;
+  color: white;
+  border: none;
+  padding: .5em 1em;
+  margin: 0 auto;
+  font-size: 1.5em;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #374535;
+}
+
+/* main page containers */
+
+.container {
+  width: 960px;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+/* headings */
+
+h1, h2 {
+  font-family: 'Pacifico', cursive;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 2.5em;
+  text-shadow: 3px 3px 0 rgba(0,0,0,.5);
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: .5em 0;
+}
+
+p {
+  margin-bottom: .5em;
+}
+
+@media (min-width: 960px) {
+  h1 {
+    text-align: left;
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
+
+/* header, footer */
+
+header,
+footer {
+  background-color: #2f4e2b;
+  background-image: url("../images/xv.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  color: white;
+}
+
+header {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+  height: 100px;
+}
+
+footer {
+  text-align: center;
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.4);
+  height: 50px;
+}
+
+/* main */
+
+main {
+  box-sizing: border-box;
+  height: calc(100vh - 150px);
+  padding: 1em 0;
+}
+
+@media (max-width: 959px) {
+  main {
+    padding: 2em;
+  }
+}
+
+/* quiz styling */
+
+/* quiz container - holds entire quiz section */
+#quiz-container {
+  display: flex;
+}
+
+/* holds the photo */
+#quiz-photo img {
+  width: 100%;
+  max-height: 100%;
+}
+
+#quiz-photo,
+#quiz-questions-container {
+  width: 100%;
+}
+
+/* holds the fillable questions, styling for input, buttons, etc. */
+#quiz-questions-container {
+  height: 360px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.quiz-submit {
+  text-align: center;
+}
+
+.quiz-question input {
+  float: right;
+  width: 50%;
+}
+
+/* styling for different screen sizes */
+@media (min-width: 960px) {
+  #quiz-photo {
+    height: 360px;
+  }
+}
+
+@media (max-width: 959px) {
+  #quiz-container {
+    flex-direction: column;
+  }
+  #quiz-photo {
+    text-align: center;
+  }
+}
+
+/* styling for answer */
+.answer {
+  text-align: right;
+  font-weight: bold;
+}
+
+.answer.correct {
+  color: green;
+}
+
+.answer.incorrect {
+  color: red;
+}
