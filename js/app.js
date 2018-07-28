@@ -19,7 +19,8 @@ var waitingToContinue = false;
 
 // plug in a number to set number of questions or
 // plug in Flora.all.length to set the number of questions to be the number of plants
-var numberOfQuestions = 3;
+var numberOfQuestions = Flora.all.length;
+questionsLeft = numberOfQuestions;
 
 // scores - common, scientific, family
 var quizScore = [0, 0, 0];
@@ -46,11 +47,11 @@ function checkAnswers(event) {
         $('.answer:eq(' + i + ')').addClass('incorrect');
       }
     }
-    numberOfQuestions--;
+    questionsLeft--;
     $('.quiz-submit button').text('Next');
     waitingToContinue = true;
   } else {
-    if (numberOfQuestions > 0) {
+    if (questionsLeft > 0) {
       setQuestion();
       quizAnswers.removeClass('correct');
       quizAnswers.removeClass('incorrect');
@@ -85,14 +86,20 @@ function endOfQuiz() {
   if (isNaN(totalScore)) {
     totalScore = 0;
   }
-  $('#quiz-container').text(quizScore[0] + '/' + numberOfQuestions + ' Common Name(s), ' + quizScore[1] + '/' + numberOfQuestions + ' Scientific Name(s), ' + quizScore[2] + '/' + numberOfQuestions + ' Family Name(s). Total score: ' + totalScore + '%');
+  // hides quiz questions and displays results
+  $('#quiz-container').css('display', 'none');
+  $('#quiz-results').css('display', 'block');
+  $('.quiz-score:eq(0)').text(quizScore[0] + '/' + numberOfQuestions + ' Common Name(s)');
+  $('.quiz-score:eq(1)').text(quizScore[1] + '/' + numberOfQuestions + ' Scientific Name(s)');
+  $('.quiz-score:eq(2)').text(quizScore[2] + '/' + numberOfQuestions + ' Family Name(s)');
+  $('.quiz-score:eq(3)').text('Total score: ' + totalScore + '%');
 }
 
 function initializeQuiz(event) {
   event.preventDefault();
   $('#start-quiz').remove();
   setQuestion();
-  $('#quiz-container').css('display', 'flex');
+  $('#quiz-container').css('display', 'block  ');
 }
 
 $('#start-quiz').on('click', initializeQuiz);
