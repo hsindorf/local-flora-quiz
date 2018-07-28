@@ -10,6 +10,10 @@ var quizInputs = jQuery('.quiz-question-input');
 
 // global variables
 var currentQuestion;
+var usedQuestions = [];
+
+// scores
+var quizScore = [0, 0, 0];
 
 // plug in a number to set number of questions or
 // plug in Flora.all.length to set the number of questions to be the number of plants
@@ -33,7 +37,25 @@ function checkAnswers(event) {
 }
 
 function getCurrentQuestion() {
-  currentQuestion = Math.floor(Math.random() * Flora.all.length);
+  do {
+    var questionUsed = false;
+    currentQuestion = Math.floor(Math.random() * Flora.all.length);
+    for(let i = 0; i < usedQuestions.length; i++) {
+      console.log(currentQuestion + ' ' + usedQuestions[i]);
+      if (currentQuestion === usedQuestions[i]) {
+        questionUsed = true;
+        console.log('question not usable');
+        break;
+      }
+    }
+  } while (questionUsed);
+  console.log('question usable');
+  usedQuestions.push(currentQuestion);
+  console.log(currentQuestion);
+}
+
+function checkPrevQuestion () {
+
 }
 
 setQuestion();
