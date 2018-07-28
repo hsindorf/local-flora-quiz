@@ -21,6 +21,7 @@ button {
   color: white;
   border: none;
   padding: .5em 1em;
+  margin: 0 auto;
   font-size: 1.5em;
 }
 
@@ -59,7 +60,7 @@ p {
   margin-bottom: .5em;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 960px) {
   h1 {
     text-align: left;
     font-size: 3em;
@@ -100,7 +101,6 @@ main {
   box-sizing: border-box;
   height: calc(100vh - 150px);
   padding: 1em 0;
-  flex-grow: 1;
 }
 
 @media (max-width: 959px) {
@@ -111,12 +111,15 @@ main {
 
 /* quiz styling */
 
+/* quiz container - holds entire quiz section */
 #quiz-container {
   display: flex;
 }
 
+/* holds the photo */
 #quiz-photo img {
-  max-width: 100%;
+  width: 100%;
+  max-height: 100%;
 }
 
 #quiz-photo,
@@ -124,16 +127,18 @@ main {
   width: 100%;
 }
 
+/* holds the fillable questions, styling for input, buttons, etc. */
 #quiz-questions-container {
   height: 360px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 2em;
 }
 
-.quiz-question {
-  height: 33%;
+.quiz-submit {
+  text-align: center;
 }
 
 .quiz-question input {
@@ -141,6 +146,7 @@ main {
   width: 50%;
 }
 
+/* styling for different screen sizes */
 @media (min-width: 960px) {
   #quiz-photo {
     height: 360px;
@@ -154,4 +160,18 @@ main {
   #quiz-photo {
     text-align: center;
   }
+}
+
+/* styling for answer */
+.answer {
+  text-align: right;
+  font-weight: bold;
+}
+
+.answer.correct {
+  color: green;
+}
+
+.answer.incorrect {
+  color: red;
 }

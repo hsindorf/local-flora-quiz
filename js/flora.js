@@ -1,8 +1,6 @@
 function Flora(id, name, scientificName, familyName, image) {
   this.id = id;
-  this.name = name;
-  this.scientificName = scientificName;
-  this.familyName = familyName;
+  this.data = [name, scientificName, familyName];
   this.image = image;
   Flora.all.push(this);
 }
@@ -16,7 +14,7 @@ function makeAllFlora() {
     'Rhododendron macrophyllum',
     'Ericaceae',
     'images/0.jpg'
-  )
+  );
 
   new Flora(
     1,
@@ -32,7 +30,7 @@ function makeAllFlora() {
     'Gaultheria shallon',
     'Ericaceae',
     'images/2.jpg'
-  )
+  );
 
   new Flora(
     3,
@@ -40,7 +38,7 @@ function makeAllFlora() {
     'Mahonia aquifolium',
     'Berberidaceae',
     'images/3.jpg'
-  )
+  );
 
   new Flora(
     4,
@@ -48,7 +46,7 @@ function makeAllFlora() {
     'Polystichum munitum',
     'Dryopteridaceae',
     'images/4.jpg'
-  )
+  );
 
   new Flora(
     5,
@@ -56,7 +54,7 @@ function makeAllFlora() {
     'Acer circinatum',
     'Aceraceae',
     'images/5.jpg'
-  )
+  );
 
   new Flora(
     6,
@@ -64,7 +62,7 @@ function makeAllFlora() {
     'Equisetum arvense',
     'Equisetaceae',
     'images/6.jpg'
-  )
+  );
 
   new Flora(
     7,
@@ -73,7 +71,7 @@ function makeAllFlora() {
     'Ilex americana',
     'Aquifoliaceae',
     'images/7.jpg'
-  )
+  );
 
   new Flora(
     8,
@@ -81,7 +79,7 @@ function makeAllFlora() {
     'Rosa nutkana',
     'Rosaceae',
     'images/8.jpg'
-  )
+  );
   
   new Flora(
     9,
@@ -89,7 +87,7 @@ function makeAllFlora() {
     'Oemleria cerasiformis',
     'Rosaceae',
     'images/9.jpg'
-  )
+  );
 }
 
 makeAllFlora();
